@@ -1,0 +1,20 @@
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+      probes:
+        enabled: true
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: "*"
+#  stackdriver:
+#    metrics:
+#      export:
+#        enabled: false
+
+logging:
+  level:
+    root: info

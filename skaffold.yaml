@@ -1,0 +1,36 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+metadata:
+  name: cloudrun-bq-remote-fn
+manifests:
+  kustomize:
+    paths:
+      - manifests/base
+build:
+  artifacts:
+    - image: cloudrun-bq-remote-fn-image
+      jib: { }
+profiles:
+  - name: local
+    manifests:
+      kustomize: { }
+      rawYaml:
+        - kube/app.yaml
+    patches:
+      - op: remove
+        path: /deploy/cloudrun
+    deploy:
+      kubectl: { }
+  - name: dev
+    manifests:
+      kustomize:
+        paths:
+          - manifests/overlays/dev
+  - name: prod
+    manifests:
+      kustomize:
+        paths:
+          - manifests/overlays/prod
+deploy:
+  cloudrun:
+    region: us-west1-a

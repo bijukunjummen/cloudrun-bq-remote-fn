@@ -1,0 +1,9 @@
+#management:
+#  stackdriver:
+#    metrics:
+#      export:
+#        enabled: true
+
+logging:
+  level:
+    root: info
