@@ -30,6 +30,6 @@ class BqRemoteControllerTest {
                 .bodyValue(bqRequest)
                 .exchange()
                 .expectBody()
-                .jsonPath("$.replies[0]").isEqualTo("The quick brown fox jumps over the lazy dog");
+                .jsonPath("$.replies[0]").isEqualTo("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG");
     }
 }

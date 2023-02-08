@@ -16,7 +16,7 @@ public class BqRemoteController {
     public ResponseEntity<BqResponse> handle(@RequestBody BqRequest request) {
         List<String> responseElements = new ArrayList<>();
         for (List<String> callElements : request.calls()) {
-            responseElements.add(callElements.get(0));
+            responseElements.add(callElements.get(0).toUpperCase());
         }
         return ResponseEntity.ok(new BqResponse(responseElements));
     }
