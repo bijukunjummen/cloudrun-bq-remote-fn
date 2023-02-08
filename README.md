@@ -16,3 +16,11 @@ OPTIONS (
   endpoint = 'https://cloudrun-endpoint-url'
 )
 ```
+
+```sql
+SELECT
+  val,
+  `myproject.mydataset`.capitalize(val)
+FROM
+  UNNEST(["test1", "test2", "test3"]) AS val;
+```
