@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class BqRemoteController {
-    @PostMapping("/bqRemoteFunction")
+    @PostMapping("/")
     public ResponseEntity<BqResponse> handle(@RequestBody BqRequest request) {
         List<String> responseElements = new ArrayList<>();
         for (List<String> callElements : request.calls()) {

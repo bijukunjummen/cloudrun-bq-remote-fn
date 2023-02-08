@@ -24,7 +24,7 @@ class BqRemoteControllerTest {
         InputStream inputStream = BqRemoteControllerTest.class.getResourceAsStream("/request-sample.json");
         BqRequest bqRequest = objectMapper.readValue(inputStream, BqRequest.class);
         webTestClient.post()
-                .uri("/bqRemoteFunction")
+                .uri("/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .bodyValue(bqRequest)
